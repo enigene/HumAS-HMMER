@@ -1,12 +1,12 @@
 # HumAS-HMMER
-Generates monomeric annotations of high order repeats of human alpha satellites.
+Generates monomeric annotation of high order repeats of human alpha satellites.
 
 ![HumAS-HMMER pipeline](HumAS-HMMER-pipeline.png)
 
 ## Prerequisites
 The pipeline requires the following components:
 * awk, sed, and other standard unix command-line programs;
-* nhmmer [HMMER](http://hmmer.org/);
+* nhmmer from [HMMER](http://hmmer.org/);
 * HMM profiles of alpha satellite HOR monomers, for example [AS-SF-HORs-SF1-divergent-hmmer3.0.hmm](https:/github.com/enigene/Files-and-scripts-used-in-SF1-HORs-in-hg38-article/HMM-profiles/AS-SF-HORs-SF1-divergent-hmmer3.0.hmm);
 * [bedmap](https://bedops.readthedocs.io/en/latest/content/reference/statistics/bedmap.html);
 * [hmmertblout2bed](https://github.com/enigene/hmmertblout2bed).
@@ -18,7 +18,7 @@ Any sequence in which you would like to analyze alpha satellite HORs in FASTA fo
 
 ## Run Slurm job
 To run this job, first modify any required slurm settings in the associated slurm file,
-probably you need to change match pattern `files=( $(find "$dir" -name "*.fasta" -print) )`
+second you probably need to change match pattern `files=( $(find "$dir" -name "*.fasta" -print) )`
 in both hmmer-array.slurm and slurm-hmmer-submit.sh files, and a path to the hmmertblout2bed script,
 and then run sbatch with that slurm submission script:
 ```
@@ -26,7 +26,7 @@ sbatch slurm-hmmer-submit.sh /path/to/input/directory /path/and/name/of/the/prof
 ```
 
 ## Run local job
-To run this job, probably you need to change match pattern
+To run this job, you probably need to change match pattern
 `files=( $(find "$dir" -name "*.fasta" -print) )` in hmmer-run.sh file, and a path
 to the hmmertblout2bed script, and then run script:
 ```
@@ -34,7 +34,7 @@ hmmer-run.sh /path/to/input/directory /path/and/name/of/the/profile.hmm
 ```
 
 ## Output
-Pipeline produces the tab delimited BED format containing one feature of interest per line.
+Pipeline produces the tab delimited BED format file containing one feature of interest per line.
 If you processing genome assembly the annotation can be viewed as
 UCSC Genome Browser custom track, for example [SF1 Alpha Satellite HORs in hg38](https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&hgt.customText=https://www.dropbox.com/s/9vuqjf87r08m4ve/nhmmer-AS-SF-HORs-SF1-divergent-hmmer3.0-vs-GCA_000001405.15_GRCh38_genomic_acc2chr-tbl-UCSCnames-t281.bed?dl=1).
 
