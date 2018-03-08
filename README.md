@@ -7,7 +7,7 @@ Generates monomeric annotation of high order repeats of human alpha satellites.
 The pipeline requires the following components:
 * awk, sed, and other standard unix command-line programs;
 * nhmmer from [HMMER](http://hmmer.org/);
-* HMM profiles of alpha satellite HOR monomers, for example [AS-SF-HORs-SF1-divergent-hmmer3.0.hmm](https:/github.com/enigene/Files-and-scripts-used-in-SF1-HORs-in-hg38-article/HMM-profiles/AS-SF-HORs-SF1-divergent-hmmer3.0.hmm);
+* HMM profiles of alpha satellite HOR monomers, for example [AS-SF-HORs-SF1-divergent-hmmer3.0.hmm](https://github.com/enigene/Files-and-scripts-used-in-SF1-HORs-in-hg38-article/tree/master/HMM-profiles);
 * [bedmap](https://bedops.readthedocs.io/en/latest/content/reference/statistics/bedmap.html);
 * [hmmertblout2bed](https://github.com/enigene/hmmertblout2bed).
 
